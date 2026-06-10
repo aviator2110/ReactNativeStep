@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View } from "react-native"
+import { Image, StyleSheet, Text, View } from "react-native"
 
-export default function ProfileCard({ name, city, favorite_language }){
+function ProfileCard({ name, role, avatar }){
     return(
         <View style={styles.card}>
+            <Image
+                style={styles.image}
+                source={{uri: avatar}}
+            />
             <Text style={styles.text}>Name: {name}</Text>
-            <Text style={styles.text}>City: {city}</Text>
-            <Text style={styles.text}>Favorite program language: {favorite_language}</Text>
+            <Text style={styles.text}>Role: {role}</Text>
         </View>
     );
 }
@@ -19,8 +22,16 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#006fd6',
         borderRadius: 12,
+        margin: 10
     },
     text: {
         fontSize: 20,
     },
+    image: {
+        width: 100,
+        height: 100,
+        borderRadius: 12
+    },
 })
+
+export default ProfileCard
